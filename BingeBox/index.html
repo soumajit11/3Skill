@@ -1,0 +1,1439 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BingeBox — Stream Everything</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/themes.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- ═══════════════════════════════════════════
+       THEME TOGGLE (hidden checkbox — CSS only)
+  ══════════════════════════════════════════════ -->
+    <input
+      type="checkbox"
+      id="theme-toggle"
+      class="theme-checkbox"
+      aria-label="Toggle theme"
+    />
+
+    <!-- ═══════════════════════════════════════════
+       HAMBURGER TOGGLE (mobile)
+  ══════════════════════════════════════════════ -->
+    <input
+      type="checkbox"
+      id="nav-toggle"
+      class="nav-checkbox"
+      aria-label="Toggle navigation"
+    />
+
+    <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════ -->
+    <header class="navbar" role="banner">
+      <div class="navbar__inner">
+        <!-- Logo -->
+        <a href="#" class="navbar__logo" aria-label="BingeBox Home">
+          <span class="logo-icon">▶</span>
+          <span class="logo-text">Binge<em>Box</em></span>
+        </a>
+
+        <!-- Hamburger Button -->
+        <label for="nav-toggle" class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </label>
+
+        <!-- Nav Links -->
+        <nav class="navbar__nav" role="navigation" aria-label="Main navigation">
+          <a href="#" class="nav-link active">Home</a>
+          <a href="#movies" class="nav-link">Movies</a>
+          <a href="#series" class="nav-link">TV Shows</a>
+          <a href="#trending" class="nav-link">Trending</a>
+
+          <!-- Genres Dropdown -->
+          <div class="nav-dropdown">
+            <button class="nav-link dropdown-btn" aria-haspopup="true">
+              Genres <span class="chevron">&#8964;</span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+              <li role="menuitem"><a href="#">Action</a></li>
+              <li role="menuitem"><a href="#">Drama</a></li>
+              <li role="menuitem"><a href="#">Comedy</a></li>
+              <li role="menuitem"><a href="#">Thriller</a></li>
+              <li role="menuitem"><a href="#">Sci-Fi</a></li>
+              <li role="menuitem"><a href="#">Horror</a></li>
+              <li role="menuitem"><a href="#">Romance</a></li>
+              <li role="menuitem"><a href="#">Documentary</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <!-- Right Controls -->
+        <div class="navbar__controls">
+          <!-- Search -->
+          <div class="search-wrap">
+            <input
+              type="search"
+              class="search-input"
+              placeholder="Search titles, genres…"
+              aria-label="Search"
+            />
+            <span class="search-icon" aria-hidden="true">
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </span>
+          </div>
+
+          <!-- Theme Toggle Label -->
+          <label
+            for="theme-toggle"
+            class="theme-btn"
+            aria-label="Toggle dark/light mode"
+            title="Toggle theme"
+          >
+            <span class="icon-moon">🌙</span>
+            <span class="icon-sun">☀️</span>
+          </label>
+
+          <!-- Profile -->
+          <button class="profile-btn" aria-label="User profile">
+            <img
+              src="pictures/avatar.png"
+              alt="Profile"
+              class="avatar"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <span class="avatar-fallback" aria-hidden="true">U</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════
+       MAIN CONTENT
+  ══════════════════════════════════════════════ -->
+    <main id="main-content" role="main">
+      <!-- ─────────────────────────────────────────
+         HERO CAROUSEL
+    ───────────────────────────────────────────── -->
+      <section class="hero" aria-label="Featured content carousel">
+        <!-- Radio inputs for CSS carousel -->
+        <input
+          type="radio"
+          name="hero-slide"
+          id="slide1"
+          class="slide-radio"
+          checked
+        />
+        <input type="radio" name="hero-slide" id="slide2" class="slide-radio" />
+        <input type="radio" name="hero-slide" id="slide3" class="slide-radio" />
+        <input type="radio" name="hero-slide" id="slide4" class="slide-radio" />
+        <input type="radio" name="hero-slide" id="slide5" class="slide-radio" />
+
+        <!-- Slides -->
+        <div class="hero__track">
+          <!-- Slide 1 – Dune Part Two -->
+          <article class="hero__slide" aria-label="Dune: Part Two">
+            <div
+              class="hero__bg"
+              style="
+                background-image:
+                  url(&quot;pictures/hero-dune2.jpg&quot;),
+                  url(&quot;https://image.tmdb.org/t/p/original/xOMo8BRK7PfcJv9JCnx7s5hj0PX.jpg&quot;);
+              "
+            ></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+              <span class="hero__badge">🔥 Trending #1</span>
+              <h1 class="hero__title">Dune: Part Two</h1>
+              <p class="hero__meta">
+                <span class="tag">2024</span><span class="tag">Sci-Fi</span
+                ><span class="tag">2h 46m</span
+                ><span class="tag rating">★ 8.5</span>
+              </p>
+              <p class="hero__desc">
+                Paul Atreides unites with Chani and the Fremen while on a
+                warpath of revenge against the conspirators who destroyed his
+                family.
+              </p>
+              <div class="hero__actions">
+                <button
+                  class="btn btn--primary"
+                  aria-label="Play Dune Part Two"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                  Play Now
+                </button>
+                <button
+                  class="btn btn--ghost"
+                  aria-label="Add Dune Part Two to watchlist"
+                >
+                  + Watchlist
+                </button>
+              </div>
+            </div>
+            <div class="hero__arrows">
+              <label
+                for="slide5"
+                class="arrow arrow--prev"
+                aria-label="Previous slide"
+                >&#8249;</label
+              >
+              <label
+                for="slide2"
+                class="arrow arrow--next"
+                aria-label="Next slide"
+                >&#8250;</label
+              >
+            </div>
+          </article>
+
+          <!-- Slide 2 – Oppenheimer -->
+          <article class="hero__slide" aria-label="Oppenheimer">
+            <div
+              class="hero__bg"
+              style="
+                background-image:
+                  url(&quot;pictures/hero-oppenheimer.jpg&quot;),
+                  url(&quot;https://image.tmdb.org/t/p/original/fm6KqXpk3M2HVveHwCrBSSBaO0V.jpg&quot;);
+              "
+            ></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+              <span class="hero__badge">🏆 Oscar Winner</span>
+              <h1 class="hero__title">Oppenheimer</h1>
+              <p class="hero__meta">
+                <span class="tag">2023</span><span class="tag">Drama</span
+                ><span class="tag">3h 1m</span
+                ><span class="tag rating">★ 8.9</span>
+              </p>
+              <p class="hero__desc">
+                The story of J. Robert Oppenheimer's role in the development of
+                the atomic bomb during World War II.
+              </p>
+              <div class="hero__actions">
+                <button class="btn btn--primary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                  Play Now
+                </button>
+                <button class="btn btn--ghost">+ Watchlist</button>
+              </div>
+            </div>
+            <div class="hero__arrows">
+              <label
+                for="slide1"
+                class="arrow arrow--prev"
+                aria-label="Previous slide"
+                >&#8249;</label
+              >
+              <label
+                for="slide3"
+                class="arrow arrow--next"
+                aria-label="Next slide"
+                >&#8250;</label
+              >
+            </div>
+          </article>
+
+          <!-- Slide 3 – Shogun (series) -->
+          <article class="hero__slide" aria-label="Shōgun">
+            <div
+              class="hero__bg"
+              style="
+                background-image:
+                  url(&quot;pictures/hero-shogun.jpg&quot;),
+                  url(&quot;https://image.tmdb.org/t/p/original/v9acaWVvFQrIsAt9dPe7342P7Bo.jpg&quot;);
+              "
+            ></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+              <span class="hero__badge">📺 Series</span>
+              <h1 class="hero__title">Shōgun</h1>
+              <p class="hero__meta">
+                <span class="tag">2024</span><span class="tag">Historical</span
+                ><span class="tag">10 Eps</span
+                ><span class="tag rating">★ 9.0</span>
+              </p>
+              <p class="hero__desc">
+                A powerful Japanese warlord forms an unlikely alliance with a
+                stranded English navigator in feudal Japan.
+              </p>
+              <div class="hero__actions">
+                <button class="btn btn--primary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                  Play Now
+                </button>
+                <button class="btn btn--ghost">+ Watchlist</button>
+              </div>
+            </div>
+            <div class="hero__arrows">
+              <label
+                for="slide2"
+                class="arrow arrow--prev"
+                aria-label="Previous slide"
+                >&#8249;</label
+              >
+              <label
+                for="slide4"
+                class="arrow arrow--next"
+                aria-label="Next slide"
+                >&#8250;</label
+              >
+            </div>
+          </article>
+
+          <!-- Slide 4 – Poor Things -->
+          <article class="hero__slide" aria-label="Poor Things">
+            <div
+              class="hero__bg"
+              style="
+                background-image:
+                  url(&quot;pictures/hero-poorthings.jpg&quot;),
+                  url(&quot;https://image.tmdb.org/t/p/original/kCGlIMHnOm8JPXIRFtjcy7Ew3mh.jpg&quot;);
+              "
+            ></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+              <span class="hero__badge">🎬 Golden Globe Winner</span>
+              <h1 class="hero__title">Poor Things</h1>
+              <p class="hero__meta">
+                <span class="tag">2023</span><span class="tag">Fantasy</span
+                ><span class="tag">2h 21m</span
+                ><span class="tag rating">★ 8.0</span>
+              </p>
+              <p class="hero__desc">
+                A young woman brought back to life by an eccentric scientist
+                embarks on a journey of self-discovery.
+              </p>
+              <div class="hero__actions">
+                <button class="btn btn--primary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                  Play Now
+                </button>
+                <button class="btn btn--ghost">+ Watchlist</button>
+              </div>
+            </div>
+            <div class="hero__arrows">
+              <label
+                for="slide3"
+                class="arrow arrow--prev"
+                aria-label="Previous slide"
+                >&#8249;</label
+              >
+              <label
+                for="slide5"
+                class="arrow arrow--next"
+                aria-label="Next slide"
+                >&#8250;</label
+              >
+            </div>
+          </article>
+
+          <!-- Slide 5 – The Bear -->
+          <article class="hero__slide" aria-label="The Bear">
+            <div
+              class="hero__bg"
+              style="
+                background-image:
+                  url(&quot;pictures/hero-thebear.jpg&quot;),
+                  url(&quot;https://image.tmdb.org/t/p/original/qBUlkyMkl8BXCB3rFCNJj0O2xKz.jpg&quot;);
+              "
+            ></div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+              <span class="hero__badge">🎖️ Emmy Award</span>
+              <h1 class="hero__title">The Bear</h1>
+              <p class="hero__meta">
+                <span class="tag">2024</span><span class="tag">Drama</span
+                ><span class="tag">S3</span
+                ><span class="tag rating">★ 8.7</span>
+              </p>
+              <p class="hero__desc">
+                A young chef from the fine dining world returns home to run his
+                family's sandwich shop in Chicago.
+              </p>
+              <div class="hero__actions">
+                <button class="btn btn--primary">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                  Play Now
+                </button>
+                <button class="btn btn--ghost">+ Watchlist</button>
+              </div>
+            </div>
+            <div class="hero__arrows">
+              <label
+                for="slide4"
+                class="arrow arrow--prev"
+                aria-label="Previous slide"
+                >&#8249;</label
+              >
+              <label
+                for="slide1"
+                class="arrow arrow--next"
+                aria-label="Next slide"
+                >&#8250;</label
+              >
+            </div>
+          </article>
+        </div>
+        <!-- /.hero__track -->
+
+        <!-- Dots -->
+        <div class="hero__dots" role="tablist" aria-label="Slide indicators">
+          <label
+            for="slide1"
+            class="dot"
+            role="tab"
+            aria-label="Go to slide 1"
+          ></label>
+          <label
+            for="slide2"
+            class="dot"
+            role="tab"
+            aria-label="Go to slide 2"
+          ></label>
+          <label
+            for="slide3"
+            class="dot"
+            role="tab"
+            aria-label="Go to slide 3"
+          ></label>
+          <label
+            for="slide4"
+            class="dot"
+            role="tab"
+            aria-label="Go to slide 4"
+          ></label>
+          <label
+            for="slide5"
+            class="dot"
+            role="tab"
+            aria-label="Go to slide 5"
+          ></label>
+        </div>
+      </section>
+      <!-- /.hero -->
+
+      <!-- ─────────────────────────────────────────
+         SECTION 1 — TRENDING NOW
+    ───────────────────────────────────────────── -->
+      <section class="content-strip" id="trending" aria-label="Trending Now">
+        <div class="strip__header">
+          <h2 class="strip__title">
+            <span class="accent-bar"></span> Trending Now
+          </h2>
+          <a href="#" class="strip__more">See All →</a>
+        </div>
+        <div class="cards-row" role="list">
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Deadpool & Wolverine"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/deadpool-wolverine.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg"
+                alt="Deadpool & Wolverine poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Deadpool & Wolverine</h3>
+                  <p class="card__genre">Action · Comedy</p>
+                  <p class="card__duration">2h 7m</p>
+                </div>
+                <button
+                  class="card__play"
+                  aria-label="Play Deadpool & Wolverine"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.8</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Gladiator II"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/gladiator2.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg"
+                alt="Gladiator II poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Gladiator II</h3>
+                  <p class="card__genre">Action · Drama</p>
+                  <p class="card__duration">2h 28m</p>
+                </div>
+                <button class="card__play" aria-label="Play Gladiator II">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.2</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Inside Out 2"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/insideout2.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/vpnVM9B6NMmQpWeZvzLvDESb2QY.jpg"
+                alt="Inside Out 2 poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Inside Out 2</h3>
+                  <p class="card__genre">Animation · Family</p>
+                  <p class="card__duration">1h 40m</p>
+                </div>
+                <button class="card__play" aria-label="Play Inside Out 2">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.6</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Alien: Romulus"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/alien-romulus.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/b33nnKl1GSFbao4l3fZDDqsMx0F.jpg"
+                alt="Alien: Romulus poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Alien: Romulus</h3>
+                  <p class="card__genre">Horror · Sci-Fi</p>
+                  <p class="card__duration">1h 59m</p>
+                </div>
+                <button class="card__play" aria-label="Play Alien: Romulus">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.3</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Wicked"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/wicked.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/xDGbZ0JJ3mYaGKy4Nzd9Kph6M9L.jpg"
+                alt="Wicked poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Wicked</h3>
+                  <p class="card__genre">Musical · Fantasy</p>
+                  <p class="card__duration">2h 40m</p>
+                </div>
+                <button class="card__play" aria-label="Play Wicked">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.9</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Longlegs"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/longlegs.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/gFlB3HGxuXZEFKSxiPaELgFHBzR.jpg"
+                alt="Longlegs poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Longlegs</h3>
+                  <p class="card__genre">Horror · Thriller</p>
+                  <p class="card__duration">1h 41m</p>
+                </div>
+                <button class="card__play" aria-label="Play Longlegs">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 6.3</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article
+            class="card"
+            role="listitem"
+            tabindex="0"
+            aria-label="Furiosa"
+          >
+            <div class="card__img-wrap">
+              <img
+                src="pictures/furiosa.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/iADOJ8Zymht2JPMoy3R7xceZprc.jpg"
+                alt="Furiosa poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Furiosa</h3>
+                  <p class="card__genre">Action · Adventure</p>
+                  <p class="card__duration">2h 28m</p>
+                </div>
+                <button class="card__play" aria-label="Play Furiosa">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.8</span>
+              <span class="card__year">2024</span>
+            </div>
+          </article>
+        </div>
+        <!-- /.cards-row -->
+      </section>
+
+      <!-- ─────────────────────────────────────────
+         SECTION 2 — POPULAR ON BINGEBOX
+    ───────────────────────────────────────────── -->
+      <section
+        class="content-strip content-strip--alt"
+        id="movies"
+        aria-label="Popular on BingeBox"
+      >
+        <div class="strip__header">
+          <h2 class="strip__title">
+            <span class="accent-bar"></span> Popular on BingeBox
+          </h2>
+          <a href="#" class="strip__more">See All →</a>
+        </div>
+        <div class="cards-row" role="list">
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/barbie.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg"
+                alt="Barbie movie poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Barbie</h3>
+                  <p class="card__genre">Comedy · Fantasy</p>
+                  <p class="card__duration">1h 54m</p>
+                </div>
+                <button class="card__play" aria-label="Play Barbie">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 6.9</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/killers-flower-moon.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/dB6Krk806zeqd0YoiVLTmSPlCmx.jpg"
+                alt="Killers of the Flower Moon poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Killers of the Flower Moon</h3>
+                  <p class="card__genre">Crime · Drama</p>
+                  <p class="card__duration">3h 26m</p>
+                </div>
+                <button
+                  class="card__play"
+                  aria-label="Play Killers of the Flower Moon"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.6</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/mission-impossible-dr.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/NNxYkU70HPurnNCSiCjYAmacwm.jpg"
+                alt="Mission Impossible Dead Reckoning poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Mission: Impossible 7</h3>
+                  <p class="card__genre">Action · Thriller</p>
+                  <p class="card__duration">2h 43m</p>
+                </div>
+                <button
+                  class="card__play"
+                  aria-label="Play Mission Impossible 7"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.7</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/the-holdovers.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/VHSzNBTwxV8vh7wylo7AclY3yz.jpg"
+                alt="The Holdovers poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Holdovers</h3>
+                  <p class="card__genre">Comedy · Drama</p>
+                  <p class="card__duration">2h 13m</p>
+                </div>
+                <button class="card__play" aria-label="Play The Holdovers">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.9</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/napoleon.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/vcZWJGvB5xydWuUO1vaTLI6sMmj.jpg"
+                alt="Napoleon poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Napoleon</h3>
+                  <p class="card__genre">Historical · War</p>
+                  <p class="card__duration">2h 38m</p>
+                </div>
+                <button class="card__play" aria-label="Play Napoleon">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 6.5</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/godzilla-kong.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/z1p34vh7dEOnLDmyCrlUVLuoDzd.jpg"
+                alt="Godzilla x Kong poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Godzilla x Kong</h3>
+                  <p class="card__genre">Action · Sci-Fi</p>
+                  <p class="card__duration">1h 55m</p>
+                </div>
+                <button class="card__play" aria-label="Play Godzilla x Kong">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 6.5</span
+              ><span class="card__year">2024</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/zone-of-interest.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/hUu9zyZmKuBa9RMbrzKgRCeHpla.jpg"
+                alt="The Zone of Interest poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Zone of Interest</h3>
+                  <p class="card__genre">Drama · War</p>
+                  <p class="card__duration">1h 45m</p>
+                </div>
+                <button class="card__play" aria-label="Play Zone of Interest">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 7.5</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────
+         SECTION 3 — TOP RATED MOVIES
+    ───────────────────────────────────────────── -->
+      <section class="content-strip" aria-label="Top Rated Movies">
+        <div class="strip__header">
+          <h2 class="strip__title">
+            <span class="accent-bar"></span> Top Rated Movies
+          </h2>
+          <a href="#" class="strip__more">See All →</a>
+        </div>
+        <div class="cards-row" role="list">
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/shawshank.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/lyQBXzOQSuE59IsHyhrp0qIiPAz.jpg"
+                alt="The Shawshank Redemption poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Shawshank Redemption</h3>
+                  <p class="card__genre">Drama · Crime</p>
+                  <p class="card__duration">2h 22m</p>
+                </div>
+                <button
+                  class="card__play"
+                  aria-label="Play The Shawshank Redemption"
+                >
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#1</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.3</span
+              ><span class="card__year">1994</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/godfather.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsLe1rjPU7Obz.jpg"
+                alt="The Godfather poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Godfather</h3>
+                  <p class="card__genre">Crime · Drama</p>
+                  <p class="card__duration">2h 55m</p>
+                </div>
+                <button class="card__play" aria-label="Play The Godfather">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#2</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.2</span
+              ><span class="card__year">1972</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/dark-knight.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+                alt="The Dark Knight poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Dark Knight</h3>
+                  <p class="card__genre">Action · Crime</p>
+                  <p class="card__duration">2h 32m</p>
+                </div>
+                <button class="card__play" aria-label="Play The Dark Knight">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#3</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.0</span
+              ><span class="card__year">2008</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/schindlers-list.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg"
+                alt="Schindler's List poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Schindler's List</h3>
+                  <p class="card__genre">Drama · War</p>
+                  <p class="card__duration">3h 15m</p>
+                </div>
+                <button class="card__play" aria-label="Play Schindler's List">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#4</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.0</span
+              ><span class="card__year">1993</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/inception.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/9gk7adHYeDvHkCSEqAvQNLV5Uge.jpg"
+                alt="Inception poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Inception</h3>
+                  <p class="card__genre">Sci-Fi · Thriller</p>
+                  <p class="card__duration">2h 28m</p>
+                </div>
+                <button class="card__play" aria-label="Play Inception">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#5</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 8.8</span
+              ><span class="card__year">2010</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/fight-club.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg"
+                alt="Fight Club poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Fight Club</h3>
+                  <p class="card__genre">Drama · Thriller</p>
+                  <p class="card__duration">2h 19m</p>
+                </div>
+                <button class="card__play" aria-label="Play Fight Club">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#6</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 8.8</span
+              ><span class="card__year">1999</span>
+            </div>
+          </article>
+
+          <article class="card card--tall" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/interstellar.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg"
+                alt="Interstellar poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Interstellar</h3>
+                  <p class="card__genre">Sci-Fi · Adventure</p>
+                  <p class="card__duration">2h 49m</p>
+                </div>
+                <button class="card__play" aria-label="Play Interstellar">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+              <div class="card__rank">#7</div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 8.7</span
+              ><span class="card__year">2014</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ─────────────────────────────────────────
+         SECTION 4 — TOP RATED WEB SERIES
+    ───────────────────────────────────────────── -->
+      <section
+        class="content-strip content-strip--alt"
+        id="series"
+        aria-label="Top Rated Web Series"
+      >
+        <div class="strip__header">
+          <h2 class="strip__title">
+            <span class="accent-bar"></span> Top Rated Web Series
+          </h2>
+          <a href="#" class="strip__more">See All →</a>
+        </div>
+        <div class="cards-row" role="list">
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/breaking-bad.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/ggFHVNu6YYI5L9pCfOacjizRGt.jpg"
+                alt="Breaking Bad poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Breaking Bad</h3>
+                  <p class="card__genre">Crime · Drama</p>
+                  <p class="card__duration">5 Seasons</p>
+                </div>
+                <button class="card__play" aria-label="Play Breaking Bad">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.5</span
+              ><span class="card__year">2008</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/chernobyl.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/hlLXt2tOPT6RRnjiUmoxyG1LTFi.jpg"
+                alt="Chernobyl poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Chernobyl</h3>
+                  <p class="card__genre">Drama · Historical</p>
+                  <p class="card__duration">5 Episodes</p>
+                </div>
+                <button class="card__play" aria-label="Play Chernobyl">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.4</span
+              ><span class="card__year">2019</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/band-of-brothers.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/aTbWFlqk5BRxlZYB3n4p4cE0OFN.jpg"
+                alt="Band of Brothers poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Band of Brothers</h3>
+                  <p class="card__genre">War · Drama</p>
+                  <p class="card__duration">10 Episodes</p>
+                </div>
+                <button class="card__play" aria-label="Play Band of Brothers">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.4</span
+              ><span class="card__year">2001</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/the-wire.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/4lbclFySvugI51fwsyxBTOm4DqK.jpg"
+                alt="The Wire poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Wire</h3>
+                  <p class="card__genre">Crime · Drama</p>
+                  <p class="card__duration">5 Seasons</p>
+                </div>
+                <button class="card__play" aria-label="Play The Wire">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.3</span
+              ><span class="card__year">2002</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/last-of-us.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/uKvVjHNqB5VmOrdxqAt2F7J78ED.jpg"
+                alt="The Last of Us poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">The Last of Us</h3>
+                  <p class="card__genre">Drama · Post-Apo</p>
+                  <p class="card__duration">2 Seasons</p>
+                </div>
+                <button class="card__play" aria-label="Play The Last of Us">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 8.8</span
+              ><span class="card__year">2023</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/succession.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/e2X8NpZTjonc9IYAH0RMVeUqsL2.jpg"
+                alt="Succession poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">Succession</h3>
+                  <p class="card__genre">Drama · Satire</p>
+                  <p class="card__duration">4 Seasons</p>
+                </div>
+                <button class="card__play" aria-label="Play Succession">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 8.9</span
+              ><span class="card__year">2018</span>
+            </div>
+          </article>
+
+          <article class="card" role="listitem" tabindex="0">
+            <div class="card__img-wrap">
+              <img
+                src="pictures/true-detective.jpg"
+                data-src="https://image.tmdb.org/t/p/w500/xKLdpS4KzVw97Q3kHvOlpFlBkCx.jpg"
+                alt="True Detective poster"
+                class="card__img"
+                loading="lazy"
+              />
+              <div class="card__overlay">
+                <div class="card__info">
+                  <h3 class="card__title">True Detective</h3>
+                  <p class="card__genre">Crime · Mystery</p>
+                  <p class="card__duration">4 Seasons</p>
+                </div>
+                <button class="card__play" aria-label="Play True Detective">
+                  <svg viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="5,3 19,12 5,21" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+            <div class="card__meta">
+              <span class="card__rating">★ 9.0</span
+              ><span class="card__year">2014</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+    <!-- /.main -->
+
+    <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <a href="#" class="navbar__logo footer-logo" aria-label="BingeBox">
+            <span class="logo-icon">▶</span>
+            <span class="logo-text">Binge<em>Box</em></span>
+          </a>
+          <p class="footer__tagline">
+            Your premium destination for movies, series, and more. Stream
+            anything. Anytime.
+          </p>
+        </div>
+
+        <nav class="footer__links" aria-label="Footer navigation">
+          <div class="footer__col">
+            <h3>Explore</h3>
+            <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Movies</a></li>
+              <li><a href="#">TV Shows</a></li>
+              <li><a href="#">Trending</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h3>Genres</h3>
+            <ul>
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Drama</a></li>
+              <li><a href="#">Sci-Fi</a></li>
+              <li><a href="#">Documentary</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer__col">
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="mailto:hello@bingebox.tv">hello@bingebox.tv</a></li>
+              <li><a href="#">Support</a></li>
+            </ul>
+            <div class="social-links" aria-label="Social media links">
+              <a href="#" aria-label="Twitter/X" class="social-btn">𝕏</a>
+              <a href="#" aria-label="Instagram" class="social-btn">&#9737;</a>
+              <a href="#" aria-label="YouTube" class="social-btn">▶</a>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div class="footer__bottom">
+        <p>
+          © 2024 BingeBox. All rights reserved. For portfolio/demo use only.
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

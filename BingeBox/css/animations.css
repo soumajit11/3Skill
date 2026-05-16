@@ -1,0 +1,186 @@
+/* ═══════════════════════════════════════════════════════animations.css — BingeBox Animations & Transitions═══════════════════════════════════════════════════════ */
+
+/* ─── Hero auto-carousel (CSS keyframe method) ─── */
+/* Each slide auto-advances every 10s (5 slides = 50s cycle) */
+@keyframes heroSlide1 {
+  0%,
+  18% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  20%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes heroSlide2 {
+  0%,
+  18% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  20%,
+  38% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  40%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes heroSlide3 {
+  0%,
+  38% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  40%,
+  58% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes heroSlide4 {
+  0%,
+  58% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  60%,
+  78% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  80%,
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+@keyframes heroSlide5 {
+  0%,
+  78% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  80%,
+  98% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+}
+
+/* ─── Ken Burns subtle background ─── */
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.08) translate(-1%, -1%);
+  }
+}
+
+/* ─── Content fade-in on load ─── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ─── Glow pulse ─── */
+@keyframes glowPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 var(--glow-shadow);
+  }
+  50% {
+    box-shadow: 0 0 0 8px transparent;
+  }
+}
+
+/* ─── Shimmer loading ─── */
+@keyframes shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+
+/* ─── Nav hamburger line animations ─── */
+@keyframes barTop {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(8px) rotate(45deg);
+  }
+}
+@keyframes barMid {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes barBot {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ─── Apply animations ─── */
+.hero__content {
+  animation: fadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.navbar {
+  animation: fadeIn 0.5s ease both;
+}
+
+.content-strip {
+  animation: fadeUp 0.7s ease both;
+}
+
+/* ─── Accessibility: prefers-reduced-motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

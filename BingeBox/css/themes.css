@@ -1,0 +1,67 @@
+/* ═══════════════════════════════════════════════════════
+   themes.css — BingeBox Theme System (CSS-only, checkbox)
+═══════════════════════════════════════════════════════ */
+
+/* ─── DARK THEME (default) ─── */
+:root,
+[data-theme="dark"] {
+  --bg: #08111f;
+  --bg-alt: #0d1a2d;
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-md: rgba(255, 255, 255, 0.1);
+  --surface-hi: rgba(255, 255, 255, 0.16);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hi: rgba(77, 168, 255, 0.4);
+
+  --accent: #4da8ff;
+  --accent-dim: rgba(77, 168, 255, 0.15);
+  --glow: #70c4ff;
+  --glow-shadow: rgba(77, 168, 255, 0.35);
+
+  --text: #f5f7fa;
+  --text-md: #a8b5c7;
+  --text-dim: #5a6a7e;
+
+  --blur: blur(18px) saturate(1.4);
+  --navbar-bg: rgba(8, 17, 31, 0.72);
+  --scrollbar-thumb: rgba(77, 168, 255, 0.4);
+  --scrollbar-track: rgba(255, 255, 255, 0.04);
+}
+
+/* ─── LIGHT THEME (checkbox checked) ─── */
+.theme-checkbox:checked ~ * {
+  --bg: #eef4ff;
+  --bg-alt: #e4eefa;
+  --surface: rgba(255, 255, 255, 0.65);
+  --surface-md: rgba(255, 255, 255, 0.8);
+  --surface-hi: rgba(255, 255, 255, 0.95);
+  --border: rgba(0, 0, 0, 0.08);
+  --border-hi: rgba(37, 99, 235, 0.35);
+
+  --accent: #2563eb;
+  --accent-dim: rgba(37, 99, 235, 0.12);
+  --glow: #60a5fa;
+  --glow-shadow: rgba(37, 99, 235, 0.2);
+
+  --text: #111827;
+  --text-md: #374151;
+  --text-dim: #9ca3af;
+
+  --navbar-bg: rgba(238, 244, 255, 0.8);
+  --scrollbar-thumb: rgba(37, 99, 235, 0.35);
+  --scrollbar-track: rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Theme icon toggles ─── */
+.theme-checkbox:not(:checked) ~ * .icon-sun {
+  display: none;
+}
+.theme-checkbox:not(:checked) ~ * .icon-moon {
+  display: inline;
+}
+.theme-checkbox:checked ~ * .icon-moon {
+  display: none;
+}
+.theme-checkbox:checked ~ * .icon-sun {
+  display: inline;
+}

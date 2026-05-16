@@ -1,0 +1,298 @@
+/* ═══════════════════════════════════════════════════════
+   js-ui.css — Styles for JavaScript-driven UI components
+   Toast · Modal · Watchlist badge · Navbar states ·
+   Scroll-reveal · Card watchlist button · Hero JS states
+═══════════════════════════════════════════════════════ */
+
+/* ────────────────────────────────────────────────────────
+   NAVBAR  — scroll-shrink + hide-on-scroll-down
+──────────────────────────────────────────────────────── */
+.navbar {
+  transition: background 0.3s ease, box-shadow 0.3s ease,
+              transform 0.35s ease, height 0.3s ease;
+}
+.navbar--scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+  background: var(--navbar-bg);
+}
+.navbar--hidden {
+  transform: translateY(-110%);
+}
+
+/* Mobile nav: open state driven by JS class */
+@media (max-width: 767px) {
+  .navbar__nav.is-open {
+    display: flex;
+  }
+  .hamburger.is-open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.is-open span:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.is-open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* ────────────────────────────────────────────────────────
+   HERO  — JS-controlled active slide (overrides radio CSS)
+──────────────────────────────────────────────────────── */
+.hero__slide.is-active {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 2;
+}
+
+/* Dot active state driven by JS */
+.hero__dots .dot.is-active {
+  background: var(--accent) !important;
+  width: 28px;
+  box-shadow: 0 0 10px rgba(77, 168, 255, 0.6);
+}
+
+/* ────────────────────────────────────────────────────────
+   SCROLL REVEAL
+──────────────────────────────────────────────────────── */
+.reveal-pending {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal-pending.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ────────────────────────────────────────────────────────
+   CARD WATCHLIST BUTTON
+──────────────────────────────────────────────────────── */
+.card__watchlist {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  transform: scale(0.75);
+  transition: opacity 0.25s ease, transform 0.25s ease,
+              background 0.2s ease, border-color 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+.card:hover .card__watchlist {
+  opacity: 1;
+  transform: scale(1);
+}
+.card__watchlist:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  transform: scale(1.1) !important;
+}
+.card__watchlist.in-watchlist {
+  background: var(--accent);
+  border-color: var(--accent);
+  opacity: 1;
+  content: '✓';
+}
+
+/* ────────────────────────────────────────────────────────
+   HERO WATCHLIST BUTTON  — in-watchlist state
+──────────────────────────────────────────────────────── */
+.btn--ghost.in-watchlist {
+  background: var(--accent-dim);
+  border-color: var(--border-hi);
+  color: var(--accent);
+}
+
+/* ────────────────────────────────────────────────────────
+   WATCHLIST BADGE  (on profile button)
+──────────────────────────────────────────────────────── */
+.profile-btn {
+  position: relative;
+}
+.watchlist-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 99px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  font-family: 'Sora', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px var(--glow-shadow);
+  pointer-events: none;
+  animation: popIn 0.3s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes popIn {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ────────────────────────────────────────────────────────
+   TOAST NOTIFICATION
+──────────────────────────────────────────────────────── */
+#bb-toast {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--surface-hi);
+  backdrop-filter: blur(18px) saturate(1.4);
+  -webkit-backdrop-filter: blur(18px) saturate(1.4);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.875rem;
+  font-family: 'Sora', sans-serif;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 99px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  white-space: nowrap;
+}
+#bb-toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+#bb-toast.bb-toast--add {
+  border-color: var(--border-hi);
+  color: var(--accent);
+}
+#bb-toast.bb-toast--remove {
+  border-color: rgba(248, 113, 113, 0.4);
+  color: #f87171;
+}
+
+/* ────────────────────────────────────────────────────────
+   SEARCH  — no-results message
+──────────────────────────────────────────────────────── */
+.no-results {
+  padding: 1.5rem 0;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* ────────────────────────────────────────────────────────
+   PLAY MODAL
+──────────────────────────────────────────────────────── */
+#bb-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#bb-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 8, 18, 0.78);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.modal__box {
+  position: relative;
+  z-index: 1;
+  background: var(--surface-hi);
+  border: 1px solid var(--border-hi);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  max-width: 420px;
+  width: calc(100vw - 2rem);
+  text-align: center;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.55);
+  transform: scale(0.92) translateY(16px);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+#bb-modal.is-open .modal__box {
+  transform: scale(1) translateY(0);
+}
+
+.modal__close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface-md);
+  border: 1px solid var(--border);
+  color: var(--text-md);
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.modal__close:hover {
+  background: var(--surface-hi);
+  color: var(--text);
+}
+
+.modal__icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.2rem;
+  box-shadow: 0 0 30px var(--glow-shadow);
+}
+
+.modal__title {
+  font-family: 'Sora', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.modal__sub {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+  line-height: 1.55;
+}
+
+.modal__play-btn {
+  width: 100%;
+  justify-content: center;
+}
